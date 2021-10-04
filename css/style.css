@@ -1,0 +1,209 @@
+:root{
+    /* primary */
+    /* text */
+    --verydarkdesaturatedblue: hsl(238, 29%, 16%);
+    --softred: hsl(14, 88%, 65%);
+    /* gradient */
+    --softviolet: hsl(273, 75%, 66%);
+    --softblue: hsl(240, 73%, 65%);
+    /* neutral */
+    /* text */
+    --verydarkgrayishblue: hsl(237, 12%, 33%);
+    --darkgrayishblue: hsl(240, 6%, 50%);
+    /* dividers */
+    --lightgrayishblue: hsl(240, 5%, 91%);
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 12px;
+    font-family: 'Kumbh Sans', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--softviolet),var(--softblue));
+    padding-bottom: 30px ;
+}
+.box{
+    display: none;
+}
+section{
+    margin-top: 116.5px;
+    width: 327px;
+    height: 535px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 15px 30px hsl(240, 39%, 50%);
+}
+.section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.top{
+    position: relative;
+    top: -142px;
+    left: -12px;
+    width: 270px;
+    height: 200px;
+    background: url("../images/illustration-woman-online-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.top::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: url("../images/bg-pattern-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: -20px;
+    left: 13px;
+}
+.bottom{
+    width: 100%;
+    height: 349px;
+    margin-top: -150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    width: 100%;
+    text-align: center;
+    color: var(--verydarkdesaturatedblue);
+}
+.title h1{
+    font-size: 35px;
+    font-weight: 700;
+}
+.container{
+    width: 88%;
+}
+.content{
+    width: 100%;
+    border-bottom: 1px solid var(--lightgrayishblue);
+    padding-bottom: 12px;
+    padding-top: 16px;
+}
+.content .question{
+    width: 100%;
+    color: var(--darkgrayishblue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.content .question h5{
+    color: var(--verydarkdesaturatedblue);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.content .question:hover h5{
+    color: var(--softred);
+}
+
+.content .text{
+    color: var(--darkgrayishblue);
+    display: none;
+}
+.content .text p{
+    font-weight: 400;
+    width: 90%;
+}
+
+
+
+.content .question.active .arrow{
+    transform: rotate(180deg);
+}
+.content .question.active h5{
+    font-weight: 700;
+}
+.content .question.active ~ .text{
+    display: block;
+}
+
+@media (min-width: 1000px){
+    body{
+        height: 768px;
+    }
+    section{
+        width: 920px;
+        height: 509px;
+        position: relative;
+    }
+    .section{
+        flex-direction: row;
+        overflow: hidden;
+    }
+    .top{
+        height: 50%;
+        background-color: red;
+    }
+    .bottom{
+        width: 50%;
+        margin-top: 0px;
+        margin-right: 20px;
+    }
+    .title{
+        text-align: left;
+        padding-left: 25px;
+    }
+    .box{
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 180px;
+        left: -95px;
+        animation: 2s move infinite ease-in-out;
+    }
+    .top{
+        width: 490px;
+        height: 500px;
+        left: -80px;
+        top: -100px;
+        background: url("../images/illustration-woman-online-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: 0px 140px;
+        background-size: contain;
+        z-index: 2;
+    }
+    .top::after{
+        content: '';
+        width: 490px;
+        height: 520px;
+        top: 90px;
+        background: url("../images/bg-pattern-desktop.svg");
+        z-index: 1;
+        background-repeat: no-repeat;
+        background-position: -515px -300px;
+    }
+}
+
+@keyframes move {
+    to{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    from{
+        transform: translateY(0px);
+    }
+}
